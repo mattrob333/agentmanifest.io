@@ -61,6 +61,13 @@ input:focus, select:focus, textarea:focus, button:focus-visible { border-color: 
 .check { display: flex; gap: 8px; align-items: center; padding: 7px 9px; background: #111418; border: 1px solid var(--border); border-radius: 4px; color: var(--text-secondary); font-size: 12px; }
 .check:has(input:checked) { color: var(--text); border-color: rgba(20,184,166,.36); background: rgba(20,184,166,.08); }
 .check input { width: auto; min-height: auto; accent-color: var(--active); }
+.choiceChip { color: var(--text-secondary); background: #111418; border: 1px solid var(--border); border-radius: 4px; padding: 8px 10px; font-size: 12px; }
+.choiceChip.selected { color: var(--text); background: rgba(20,184,166,.11); border-color: rgba(20,184,166,.45); box-shadow: 0 0 0 1px rgba(20,184,166,.12) inset; }
+.logoGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(132px, 1fr)); gap: 9px; }
+.logoCard { display: flex; align-items: center; gap: 9px; min-height: 48px; padding: 9px; color: var(--text-secondary); background: #111418; border: 1px solid var(--border); border-radius: 5px; text-align: left; }
+.logoCard span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 4px; color: var(--active); background: rgba(20,184,166,.1); border: 1px solid rgba(20,184,166,.2); font-family: "IBM Plex Mono", monospace; font-size: 10px; }
+.logoCard strong { font-size: 12px; font-weight: 600; }
+.logoCard.selected { color: var(--text); border-color: rgba(20,184,166,.45); background: rgba(20,184,166,.08); }
 .btn { border: 1px solid rgba(20,184,166,.62); border-radius: 4px; padding: 9px 12px; min-height: 36px; color: #061311; background: linear-gradient(180deg, #2dd4bf, var(--active)); font-weight: 700; font-size: 12px; box-shadow: 0 8px 18px rgba(20,184,166,.13); }
 .btn.secondary { color: var(--text-secondary); background: linear-gradient(180deg, #20242b, #171a20); border-color: var(--border-strong); box-shadow: none; }
 .btn.demo { color: #eef2ff; background: linear-gradient(180deg, #6366f1, #4f46e5); border-color: rgba(99,102,241,.74); box-shadow: 0 8px 18px rgba(99,102,241,.14); }
@@ -75,6 +82,7 @@ th, td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left
 th { color: var(--text-tertiary); font-family: "IBM Plex Mono", monospace; background: #111418; text-transform: uppercase; }
 .cardList { display: grid; gap: 10px; }
 .itemCard { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 13px 14px; background: rgba(17,20,24,.92); border: 1px solid var(--border); border-radius: 5px; }
+.itemCard.clickable { cursor: pointer; }
 .itemCard:hover { border-color: rgba(20,184,166,.28); }
 .itemCard strong { display: block; }
 .itemCard span { color: var(--text-tertiary); font-size: 12px; }
@@ -82,7 +90,19 @@ th { color: var(--text-tertiary); font-family: "IBM Plex Mono", monospace; backg
 .toast.show { opacity: 1; transform: translateY(0); }
 .modalBackdrop { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.72); z-index: 20; }
 .modal { width: min(520px, calc(100vw - 40px)); background: var(--surface); border: 1px solid rgba(99,102,241,.4); border-radius: 5px; padding: 24px; box-shadow: 0 24px 80px rgba(0,0,0,.44); }
+.modal.inspector { width: min(760px, calc(100vw - 48px)); }
 .modal h2 { margin-top: 0; font-size: 26px; }
+.between { justify-content: space-between; align-items: flex-start; }
+.metaGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.metaGrid > div { min-height: 64px; padding: 11px; background: #111418; border: 1px solid var(--border); border-radius: 5px; }
+.metaGrid p { margin: 7px 0 0; color: var(--text); font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }
+.vizPanel { margin: 0 0 14px; padding: 16px; background: rgba(22,24,28,.72); border: 1px solid var(--border); border-radius: 5px; }
+.vizHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.vizHeader span { color: var(--text-tertiary); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+.vizGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.vizNode { min-height: 70px; padding: 11px; color: var(--text); background: radial-gradient(circle at top left, rgba(20,184,166,.14), transparent 45%), #111418; border: 1px solid var(--border); border-radius: 5px; text-align: left; }
+.vizNode strong { display: block; margin-bottom: 8px; }
+.vizNode span { color: var(--text-tertiary); font-size: 12px; }
 .downloadPanel { border-color: rgba(20,184,166,.44); background: linear-gradient(180deg, rgba(20,184,166,.08), rgba(22,24,28,.94)); }
 .saveState { color: var(--text-tertiary); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
 @media (max-width: 1023px) {
