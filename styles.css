@@ -1,0 +1,84 @@
+:root {
+  --bg: #0a0a0a;
+  --panel: #131722;
+  --panel-2: #1e2937;
+  --line: rgba(148, 163, 184, 0.2);
+  --text: #f8fafc;
+  --muted: #94a3b8;
+  --teal: #5eead4;
+  --lav: #c4b5fd;
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --green: #10b981;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+#phoneBlock { display: none; min-height: 100vh; padding: 48px 28px; }
+#phoneBlock h1, .brand, h1, h2 { font-family: Georgia, serif; font-weight: 700; letter-spacing: 0; }
+.shell { min-height: 100vh; display: grid; grid-template-columns: 240px 1fr; grid-template-rows: 64px 1fr; }
+.header { grid-column: 1 / -1; position: sticky; top: 0; z-index: 5; display: grid; grid-template-columns: 240px 1fr auto; align-items: center; gap: 18px; height: 64px; padding: 0 22px; background: rgba(10,10,10,.92); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+.brand { display: flex; align-items: baseline; gap: 10px; font-size: 20px; }
+.brand span { color: var(--teal); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
+.headerCenter { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.progress { width: min(360px, 34vw); height: 8px; background: #0f172a; border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+.progress > div { height: 100%; background: linear-gradient(90deg, var(--teal), var(--green)); transition: width .25s ease; }
+.headerActions { display: flex; align-items: center; gap: 10px; }
+.nav { padding: 20px 12px; border-right: 1px solid var(--line); background: #0d0f15; }
+.nav button { width: 100%; display: grid; grid-template-columns: 22px 1fr auto; align-items: center; gap: 10px; margin-bottom: 8px; padding: 12px 10px; color: var(--muted); background: transparent; border: 1px solid transparent; border-radius: 8px; text-align: left; }
+.nav button.active { color: var(--text); background: var(--panel); border-color: rgba(94,234,212,.28); }
+.nav small { color: var(--muted); font-family: "IBM Plex Mono", monospace; }
+.dot { width: 10px; height: 10px; border-radius: 50%; background: #334155; }
+.dot.progressing { background: var(--amber); }
+.dot.complete { background: var(--green); box-shadow: 0 0 0 4px rgba(16,185,129,.12); }
+.main { padding: 38px 34px 80px; overflow: auto; }
+.content { max-width: 880px; margin: 0 auto; }
+h1 { margin: 0 0 10px; font-size: 40px; line-height: 1.05; }
+.lede { margin: 0 0 26px; color: var(--muted); font-size: 16px; line-height: 1.55; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 22px; margin-bottom: 18px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px; }
+.field { display: grid; gap: 7px; }
+.field.full { grid-column: 1 / -1; }
+label { color: var(--text); font-size: 14px; font-weight: 600; }
+.hint { color: var(--muted); font-size: 13px; line-height: 1.45; }
+input, select, textarea { width: 100%; color: var(--text); background: #0f172a; border: 1px solid var(--line); border-radius: 8px; padding: 11px 12px; outline: none; }
+textarea { min-height: 98px; resize: vertical; }
+input:focus, select:focus, textarea:focus, button:focus-visible { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(94,234,212,.16); outline: none; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px; }
+.check { display: flex; gap: 8px; align-items: center; padding: 9px 10px; background: #0f172a; border: 1px solid var(--line); border-radius: 8px; color: var(--muted); }
+.check input { width: auto; accent-color: var(--teal); }
+.btn { border: 1px solid transparent; border-radius: 8px; padding: 11px 14px; color: #041010; background: var(--teal); font-weight: 700; }
+.btn.secondary { color: var(--text); background: var(--panel-2); border-color: var(--line); }
+.btn.demo { color: #180d2e; background: var(--lav); }
+.btn.ghost { color: var(--teal); background: transparent; border-color: rgba(94,234,212,.28); }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.badge { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(196,181,253,.35); color: var(--lav); background: rgba(196,181,253,.1); border-radius: 999px; padding: 6px 9px; font-size: 12px; font-family: "IBM Plex Mono", monospace; }
+.tableWrap { overflow: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { width: 100%; border-collapse: collapse; min-width: 720px; }
+th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; font-size: 13px; }
+th { color: var(--muted); font-family: "IBM Plex Mono", monospace; background: #0f172a; }
+.cardList { display: grid; gap: 10px; }
+.itemCard { display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 14px; background: #0f172a; border: 1px solid var(--line); border-radius: 8px; }
+.itemCard strong { display: block; }
+.itemCard span { color: var(--muted); font-size: 13px; }
+.toast { position: fixed; right: 20px; bottom: 20px; padding: 12px 14px; background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; color: var(--text); opacity: 0; transform: translateY(10px); transition: .2s ease; z-index: 10; }
+.toast.show { opacity: 1; transform: translateY(0); }
+.modalBackdrop { position: fixed; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,.72); z-index: 20; }
+.modal { width: min(520px, calc(100vw - 40px)); background: var(--panel); border: 1px solid rgba(196,181,253,.3); border-radius: 8px; padding: 24px; }
+.modal h2 { margin-top: 0; font-size: 26px; }
+.downloadPanel { border-color: rgba(94,234,212,.4); }
+.saveState { color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+@media (max-width: 1023px) {
+  .shell { grid-template-columns: 1fr; }
+  .header { grid-template-columns: auto 1fr; height: auto; min-height: 64px; }
+  .headerCenter { order: 3; grid-column: 1 / -1; justify-content: flex-start; padding-bottom: 12px; }
+  .nav { display: flex; overflow-x: auto; border-right: 0; border-bottom: 1px solid var(--line); padding: 10px; }
+  .nav button { min-width: 220px; margin: 0 8px 0 0; }
+  .main { padding: 28px 18px 70px; }
+}
+@media (max-width: 767px) {
+  #app { display: none; }
+  #phoneBlock { display: block; }
+}
