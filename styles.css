@@ -96,6 +96,8 @@ th { color: var(--text-tertiary); font-family: "IBM Plex Mono", monospace; backg
 .metaGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
 .metaGrid > div { min-height: 64px; padding: 11px; background: #111418; border: 1px solid var(--border); border-radius: 5px; }
 .metaGrid p { margin: 7px 0 0; color: var(--text); font-size: 13px; line-height: 1.45; overflow-wrap: anywhere; }
+.editGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.editGrid .field.full { grid-column: 1 / -1; }
 .vizPanel { margin: 0 0 14px; padding: 16px; background: rgba(22,24,28,.72); border: 1px solid var(--border); border-radius: 5px; }
 .vizHeader { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
 .vizHeader span { color: var(--text-tertiary); font-family: "IBM Plex Mono", monospace; font-size: 11px; }
