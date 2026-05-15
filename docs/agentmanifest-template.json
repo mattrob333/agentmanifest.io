@@ -27,7 +27,27 @@
     "dashboard_contract": "pedigree4-mvp-demo",
     "endpoints": ["/v1/demo/summary", "/v1/humans", "/v1/agents"],
     "humans": [],
-    "agents": [],
+    "agents": [
+      {
+        "agent_id": "uuid",
+        "tenant_id": "customer slug",
+        "external_id": "source agent id",
+        "platform": "Microsoft Copilot Studio | custom | other vendor",
+        "name": "Agent name",
+        "description": "Purpose and business use",
+        "status": "active | orphaned",
+        "owner_human_id": "matching human_id",
+        "scope_snapshot": {
+          "knowledge_sources": [],
+          "actions": [],
+          "environment_id": "agentmanifest-discovery",
+          "requested_scopes": [],
+          "parent_fit": "Inside parent ceiling | Exceeds parent ceiling | Orphaned"
+        },
+        "risk_score": 0,
+        "created_at": "ISO-8601 timestamp"
+      }
+    ],
     "demo_summary": {
       "tenant": "customer slug",
       "humans": 0,
@@ -39,6 +59,7 @@
   },
   "governance": {
     "rule": "Agents inherit from humans. Agents never outrank humans. Agents never exceed human tool scopes. Exceptions require explicit approval.",
+    "role_policy": "Pedigree baseline: inherit from human owner",
     "approver_email": "",
     "audit_cycle": "quarterly",
     "attestation_required": "yes"
